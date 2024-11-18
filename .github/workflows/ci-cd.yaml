@@ -3,7 +3,8 @@ name: Build and Push Docker Images
 on:
   push:
     branches:
-      - main  
+      - main
+      - master  
       - devops
 env:
   DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
