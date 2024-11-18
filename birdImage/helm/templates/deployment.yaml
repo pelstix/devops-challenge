@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-birdimage
+spec:
+  replicas: {{ .Values.birdimage.replicas }}
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}-birdimage
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }}-birdimage
+    spec:
+      containers:
+      - name: {{ .Values.birdimage.containerName }}
+        image: "{{ .Values.birdimage.image.repository }}:{{ .Values.birdimage.image.tag }}"
+        ports:
+        - containerPort: {{ .Values.birdimage.containerPort }}

@@ -1,0 +1,4 @@
+apiVersion: v2
+name: bird
+description: A Helm chart for the bird API
+version: 0.1.0

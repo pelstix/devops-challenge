@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Release.Name }}-birdimage-service
+spec:
+  clusterIP: {{ .Values.birdimage.clusterIP }}
+  selector:
+    app: {{ .Release.Name }}-birdimage
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: {{ .Values.birdimage.containerPort }}
+      nodePort: {{ .Values.birdimage.nodePort }}  # Specify the node port here
+  type: NodePort
+

@@ -1,0 +1,12 @@
+bird:
+  replicas: 1
+  containerName: bird
+  image:
+    repository: pelfap/bird
+    tag: latest
+  containerPort: 4201
+  clusterIP: 10.96.0.52
+  nodePort: 32000 
+  ingress:
+    host: my-bird-app
+

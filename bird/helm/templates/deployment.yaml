@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-bird
+spec:
+  replicas: {{ .Values.bird.replicas }}
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}-bird
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }}-bird
+    spec:
+      imagePullSecrets:
+      - name: regcred
+      containers:
+      - name: {{ .Values.bird.containerName }}
+        image: "{{ .Values.bird.image.repository }}:{{ .Values.bird.image.tag }}"
+        ports:
+        - containerPort: {{ .Values.bird.containerPort }}

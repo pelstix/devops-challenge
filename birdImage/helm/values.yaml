@@ -1,0 +1,11 @@
+birdimage:
+  replicas: 1
+  containerName: birdimage
+  image:
+    repository: pelfap/birdimage
+    tag: latest
+  containerPort: 4200
+  clusterIP: 10.96.0.53
+  nodePort: 32001
+  ingress:
+    host: my-bird-app
